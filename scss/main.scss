@@ -65,6 +65,13 @@ body {
     line-height: 24px;
     border-radius: 50px;
     border: none;
+    &:hover {
+      opacity: 0.8;
+    }
+    @media screen and (min-width: 768px) {
+      width: 50%;
+      align-self: center;
+    }
   }
 }
 
@@ -337,6 +344,13 @@ body {
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
+      &:hover{
+        opacity: 0.8;
+      }
+      @media screen and (min-width: 768px) {
+        width: 50%;
+        align-self: center;
+      }
     }
   }
   &__menu {
@@ -344,6 +358,9 @@ body {
     flex-direction: column;
     margin: 36px 0px;
     width: 100%;
+    animation: example 4s;
+    animation-fill-mode: forwards;
+    position: relative;
     &-title {
       font-family: "Roboto";
       font-size: 16px;
@@ -388,6 +405,7 @@ body {
 
         &-price {
           align-self: flex-end;
+          margin-right: 50px;
         }
 
         &-visited {
@@ -412,11 +430,14 @@ body {
           }
           & > span {
             padding: 16px 0px 16px 16px;
-            width: auto;
+            width: 80%;
           }
           & > p {
             padding-bottom: 16px;
             margin-right: 6px;
+          }
+          .fa-check-circle {
+            animation: rotate 2s linear;
           }
         }
       }
@@ -436,4 +457,82 @@ body {
   border-bottom: 2px solid #99e2d0;
   width: 10%;
   margin-top: 4px;
+}
+
+@keyframes example {
+  from {
+    top: 150px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
+.loaderContainer {
+  background-color: #ff79da;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#hideMe {
+  -webkit-animation: cssAnimation 5s forwards;
+  animation: cssAnimation 5s forwards;
+}
+@keyframes cssAnimation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    overflow: hidden;
+    height: 0px;
+  }
+}
+@-webkit-keyframes cssAnimation {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    height: 0px;
+  }
+}
+#hideMe {
+  -webkit-animation: cssAnimation 5s forwards;
+  animation: cssAnimation 5s forwards;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
